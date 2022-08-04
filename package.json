@@ -1,0 +1,28 @@
+{
+  "name": "frontend-project-lvl2",
+  "version": "1.0.0",
+  "description": "[![Actions Status](https://github.com/Alsecode/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/Alsecode/frontend-project-lvl2/actions)",
+  "main": ".eslintrc.js",
+  "type": "module",
+  "bin": {
+    "gendiff": "bin/gendiff.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alsecode/frontend-project-lvl2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alsecode/frontend-project-lvl2/issues"
+  },
+  "homepage": "https://github.com/Alsecode/frontend-project-lvl2#readme",
+  "dependencies": {
+    "commander": "^9.4.0",
+    "eslint": "^8.21.0",
+    "readline-sync": "^1.4.10"
+  }
+}
