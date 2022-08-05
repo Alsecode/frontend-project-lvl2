@@ -23,6 +23,9 @@
   "dependencies": {
     "commander": "^9.4.0",
     "eslint": "^8.21.0",
+    "fs": "^0.0.1-security",
+    "lodash": "^4.17.21",
+    "path": "^0.12.7",
     "readline-sync": "^1.4.10"
   }
 }
