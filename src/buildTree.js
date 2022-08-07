@@ -4,7 +4,6 @@ import _ from 'lodash';
    const oldEntries = _.entries(file1);
    const newEntries = _.entries(file2);
    const allEntries = _.uniqWith(oldEntries.concat(newEntries), _.isEqual);
-
    const result = allEntries.map((item) => {
       const [key, value] = item;
       if (file1[key] === file2[key]) {
