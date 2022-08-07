@@ -20,10 +20,7 @@ import _ from 'lodash';
       if (key1 === key2) {
          return mod1 < mod2 ? 1 : -1;
       }
-      if (a.slice(2) > b.slice(2)) {
-         return 1;
-      }
-      return -1;
+      return (a.slice(2) > b.slice(2)) ? 1 : -1;
    })
    .map((item) => {
       return `\n  ${item}`;
