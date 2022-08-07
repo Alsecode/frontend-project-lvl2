@@ -22,9 +22,7 @@ import _ from 'lodash';
       }
       return (a.slice(2) > b.slice(2)) ? 1 : -1;
    })
-   .map((item) => {
-      return `\n  ${item}`;
-   })
+   .map((item) => `\n  ${item}`)
    .join('');
    return `{${result}\n}`;
  };
