@@ -7,7 +7,7 @@ const parse = (filePath, fileType) => {
   if (fileType === 'yml' || fileType === 'yaml') {
     return yaml.load(filePath);
   }
-  return 'Error! Invalid type.'
+  return 'Error! Invalid type.';
 };
 
 export default parse;
