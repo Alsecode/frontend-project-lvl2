@@ -18,20 +18,20 @@ test('gediff flat json test 1', () => {
 });
 
 test('gediff flat json test 2', () => {
-  const expected = readFile('expectedFlat4.txt');
-  const result = gendiff(getFixturePath('flat2.json'), getFixturePath('flat1.json'));
-  expect(result).toEqual(expected);
-});
-
-test('gediff flat json test with same files', () => {
   const expected = readFile('expectedFlat2.txt');
-  const result = gendiff(getFixturePath('flat1.json'), getFixturePath('flat1.json'));
+  const result = gendiff(getFixturePath('flat2.json'), getFixturePath('flat1.json'));
   expect(result).toEqual(expected);
 });
 
 test('gediff flat json test with empty file', () => {
   const expected = readFile('expectedFlat3.txt');
   const result = gendiff(getFixturePath('emptyFile.json'), getFixturePath('flat2.json'));
+  expect(result).toEqual(expected);
+});
+
+test('gediff flat json test with same files', () => {
+  const expected = readFile('expectedFlat4.txt');
+  const result = gendiff(getFixturePath('flat1.json'), getFixturePath('flat1.json'));
   expect(result).toEqual(expected);
 });
 
@@ -42,7 +42,7 @@ test('gediff flat yaml test 1', () => {
 });
 
 test('gediff flat yaml test 2', () => {
-  const expected = readFile('expectedFlat4.txt');
+  const expected = readFile('expectedFlat2.txt');
   const result = gendiff(getFixturePath('flat2.yaml'), getFixturePath('flat1.yml'));
   expect(result).toEqual(expected);
 });
@@ -61,7 +61,7 @@ test('gediff nested yaml test 1 (format = stylish)', () => {
 
 test('gediff nested json test 2 (format = plain)', () => {
   const expected = readFile('expectedNestedPlain.txt');
-  const result = gendiff(getFixturePath('nested1.yml'), getFixturePath('nested2.yaml'), 'plain');
+  const result = gendiff(getFixturePath('nested1.json'), getFixturePath('nested2.json'), 'plain');
   expect(result).toEqual(expected);
 });
 
@@ -73,7 +73,7 @@ test('gediff nested yaml test 2 (format = plain)', () => {
 
 test('gediff nested json test 3 (format = json)', () => {
   const expected = readFile('expectedNestedJson.txt');
-  const result = gendiff(getFixturePath('nested1.yml'), getFixturePath('nested2.yaml'), 'json');
+  const result = gendiff(getFixturePath('nested1.json'), getFixturePath('nested2.json'), 'json');
   expect(result).toEqual(expected);
 });
 

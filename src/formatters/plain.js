@@ -32,7 +32,7 @@ const plain = (tree) => {
     return acc;
   }, []);
   const result = iter(tree, []);
-  return result.join('\r\n');
+  return result.join('\n');
 };
 
 export default plain;

@@ -5,8 +5,8 @@ const getString = (value, depth) => {
     return value;
   }
   const result = Object.keys(value).map((key) => `${getIdent(depth + 4)}${key}: ${getString(value[key], depth + 2)}`)
-    .join('\r\n');
-  return `{\r\n${result}\r\n${getIdent(depth + 2)}}`;
+    .join('\n');
+  return `{\n${result}\n${getIdent(depth + 2)}}`;
 };
 
 const stylish = (tree) => {
@@ -24,7 +24,7 @@ const stylish = (tree) => {
           result = `${getIdent(depth)}- ${item.key}: ${getString(item.value, depth)}`;
           break;
         case 'changed':
-          result = `${getIdent(depth)}- ${item.key}: ${getString(item.firstValue, depth)}\r\n  ${getIdent(depth)}+ ${item.key}: ${getString(item.secondValue, depth)}`;
+          result = `${getIdent(depth)}- ${item.key}: ${getString(item.firstValue, depth)}\n  ${getIdent(depth)}+ ${item.key}: ${getString(item.secondValue, depth)}`;
           break;
         case 'nested':
           result = `${getIdent(depth)}  ${item.key}: ${iter(item.children, depth + 2)}`;
@@ -34,8 +34,8 @@ const stylish = (tree) => {
       return result;
     })
       .map((item) => `  ${item}`)
-      .join('\r\n');
-    return `{\r\n${stylis}\r\n${getIdent(depth)}}`;
+      .join('\n');
+    return `{\n${stylis}\n${getIdent(depth)}}`;
   };
   return iter(tree, 0);
 };
