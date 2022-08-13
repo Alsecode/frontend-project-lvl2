@@ -19,10 +19,7 @@ const makeDiff = (data1, data2) => {
       return { key, status: 'nested', children: makeDiff(data1[key], data2[key]) };
     }
     return {
-      key,
-      firstValue: data1[key],
-      secondValue: data2[key],
-      status: 'changed',
+      key, firstValue: data1[key], secondValue: data2[key], status: 'changed',
     };
   });
   return result;
