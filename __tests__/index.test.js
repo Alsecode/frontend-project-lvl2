@@ -1,6 +1,6 @@
-import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
 import { readFileSync } from 'fs';
+import { fileURLToPath } from 'url';
 import gendiff from '../src/index.js';
 
 const fileName = fileURLToPath(import.meta.url);
