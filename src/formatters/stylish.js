@@ -12,26 +12,19 @@ const getString = (value, depth) => {
 const stylish = (tree) => {
   const iter = (currentTree, depth) => {
     const stylis = currentTree.map((item) => {
-      let result;
-      switch (item.status) {
-        case 'unchanged':
-          result = `${getIdent(depth)}  ${item.key}: ${getString(item.value, depth)}`;
-          break;
-        case 'added':
-          result = `${getIdent(depth)}+ ${item.key}: ${getString(item.value, depth)}`;
-          break;
-        case 'removed':
-          result = `${getIdent(depth)}- ${item.key}: ${getString(item.value, depth)}`;
-          break;
-        case 'changed':
-          result = `${getIdent(depth)}- ${item.key}: ${getString(item.firstValue, depth)}\n  ${getIdent(depth)}+ ${item.key}: ${getString(item.secondValue, depth)}`;
-          break;
-        case 'nested':
-          result = `${getIdent(depth)}  ${item.key}: ${iter(item.children, depth + 2)}`;
-          break;
-        default:
+      if (item.status === 'unchanged') {
+        return `${getIdent(depth)}  ${item.key}: ${getString(item.value, depth)}`;
       }
-      return result;
+      if (item.status === 'added') {
+        return `${getIdent(depth)}+ ${item.key}: ${getString(item.value, depth)}`;
+      }
+      if (item.status === 'removed') {
+        return `${getIdent(depth)}- ${item.key}: ${getString(item.value, depth)}`;
+      }
+      if (item.status === 'changed') {
+        return `${getIdent(depth)}- ${item.key}: ${getString(item.firstValue, depth)}\n  ${getIdent(depth)}+ ${item.key}: ${getString(item.secondValue, depth)}`;
+      }
+      return `${getIdent(depth)}  ${item.key}: ${iter(item.children, depth + 2)}`;
     })
       .map((item) => `  ${item}`)
       .join('\n');
